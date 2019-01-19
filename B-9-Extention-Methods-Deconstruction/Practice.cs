@@ -42,6 +42,43 @@ namespace Base_Lesson_9.Practice
         /// </summary>
         public static void L9_P_EX_2_from_2()
         {
+            DayTime now = new DayTime()
+            {
+                Year = DateTime.Now.Year,
+                Month = DateTime.Now.Month,
+                Day = DateTime.Now.Day,
+                Hours = DateTime.Now.Hour,
+                Minutes = DateTime.Now.Minute,
+                Seconds = DateTime.Now.Second
+            };
+
+            var (_, _, _, hour, minutes, seconds) = now;
+            Console.WriteLine($"{hour} {minutes} {seconds}");
+        }
+    }
+
+    public class DayTime
+    {
+        public int Year { get; set; }
+        public int Month { get; set; }
+        public int Day { get; set; }
+        public int Hours { get; set; }
+        public int Minutes { get; set; }
+        public int Seconds { get; set; }
+
+    }
+
+    public static class DayTimeExtention
+    {
+        public static void Deconstruct(this DayTime now, out int year, out int month,
+            out int day, out int hour, out int minute, out int second)
+        {
+            year = now.Year;
+            month = now.Month;
+            day = now.Day;
+            hour = now.Hours;
+            minute = now.Minutes;
+            second = now.Seconds;
 
         }
     }
